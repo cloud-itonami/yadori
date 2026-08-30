@@ -4,6 +4,7 @@
     yadori.methods.test-availability
     yadori.methods.test-confusable-fqdn
     yadori.methods.test-homograph
+    yadori.cloudflare-test
     yadori.cells.availability-check.test-state-machine
     yadori.cells.reservation.test-state-machine])
 (doseq [ns-sym test-namespaces] (require ns-sym))

@@ -1,0 +1,8 @@
+[{:db/id -1
+  :adr/id "adr-2608301000-agent-first-domain-service"
+  :adr/title "ADR-2608301000: Agent-first domain lifecycle on Cloudflare"
+  :adr/status "active"
+  :adr/date "2026-08-30"
+  :adr/authoritative true
+  :adr/authoritative_for ["yadori.cloudflare" "Cloudflare registrar mutation boundary"]
+  :adr/body "Yadori exposes Cloudflare domain search, authoritative price check, registration status, auto-renew policy and DNS request builders through an injected host transport. Search never authorizes purchase. A billable, non-refundable registration is permitted only after member Passkey approval of the exact Check quote, followed by an immediate second Check; any availability, registration-price, renewal-price, currency or tier change refuses before POST /registrations. Credentials remain host-held, premium registration fails closed, and manual renew, transfer and contact update remain explicitly unsupported while the Cloudflare Registrar API is beta. Existing G2/G3/G5/G6/G7/G9 gates remain in force."}]
