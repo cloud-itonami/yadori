@@ -5,7 +5,7 @@
   (operator+YADORI_ALLOW_LIVE_RDAP both present → true) needs a process env flag and is covered by
   the Python suite under monkeypatch; here we pin the G7 SAFETY property: without BOTH, live is refused."
   (:require [clojure.test :refer [deftest is]]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [yadori.cells.availability-check.state-machine :as sm]))
 
 (defn- check

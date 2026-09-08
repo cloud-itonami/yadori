@@ -15,7 +15,7 @@
 
   Conventions: dataclass ReservationState → a plain map with the SAME string field keys the Python
   `cs.__dict__` round-trips; phase enum value identities stay strings; ValueError → ex-info."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [yadori.methods.availability :as availability]))
 
 ;; G3: registrars yadori may select without a Council approval flag.
@@ -75,7 +75,7 @@
                   "sld" (get state "sld" (get cs "sld"))
                   "speculative" (boolean (get state "speculative" false))
                   "charter_clean" (boolean (get state "charter_clean" true)))]
-    (when (contains? blocked-names (str/lower-case (get cs "sld")))
+    (when (contains? blocked-names (str/lower (get cs "sld")))
       (throw (ex-info (str "G6 violation: '" (get cs "sld") "' fails held-trademark/confusable screen") {:gate "G6"})))
     (when (availability/confusable-fqdn? (get cs "sld"))
       (throw (ex-info (str "G6 violation: '" (get cs "sld")
