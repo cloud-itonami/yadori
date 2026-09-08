@@ -23,7 +23,7 @@
   below because java.net.IDN is unavailable in Babashka and we keep this self-contained — ASCII
   labels pass through, unicode labels become xn--…. The live RDAP socket fetch is behind
   #?(:clj …). The Python `__main__` offline demo printer is intentionally omitted."
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             [clojure.set :as set]
             #?(:clj [clojure.java.io :as io])))
 
@@ -149,7 +149,7 @@
   [fqdn]
   (let [name (-> (or fqdn "") str/trim
                  (str/replace #"\.+$" "")   ; rstrip('.')
-                 str/lower-case)]
+                 str/lower)]
     (when (or (= "" name) (not (str/includes? name ".")))
       (throw (ex-info (str "invalid domain: " (pr-str fqdn)) {:fqdn fqdn})))
     (let [labels (str/split name #"\." -1)]

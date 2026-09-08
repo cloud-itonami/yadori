@@ -11,7 +11,7 @@
   Cloudflare registration is billable and non-refundable, so callers must bind
   the exact checked price into a Passkey/member approval before calling the
   registration request."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (def api-base "https://api.cloudflare.com/client/v4")
 
@@ -26,7 +26,7 @@
     v))
 
 (defn fqdn [x]
-  (let [v (-> (required-text "domain" x) str/lower-case (str/replace #"\.$" ""))]
+  (let [v (-> (required-text "domain" x) str/lower (str/replace #"\.$" ""))]
     (when-not (and (<= 3 (count v) 253)
                    (re-matches #"(?i)[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?)+" v))
       (throw (ex-info "domain must be an ASCII FQDN"
@@ -82,7 +82,7 @@
    :path (str "/zones/" (required-text "zone-id" zone-id) "/dns_records")})
 
 (defn create-dns-record-request [zone-id record]
-  (let [type (some-> (value record :type) str str/upper-case not-empty)
+  (let [type (some-> (value record :type) str str/upper not-empty)
         name (required-text "name" (value record :name))
         content (required-text "content" (value record :content))]
     (when-not (contains? #{"A" "AAAA" "CAA" "CNAME" "MX" "NS" "SRV" "TXT"} type)
@@ -124,7 +124,7 @@
 
 (defn checked-domain [result domain]
   (let [wanted (fqdn domain)]
-    (some #(when (= wanted (some-> (value % :name) str str/lower-case)) %) (domain-results result))))
+    (some #(when (= wanted (some-> (value % :name) str str/lower)) %) (domain-results result))))
 
 (defn domain-quote
   "Create the exact, consent-bindable quote from a Check response."

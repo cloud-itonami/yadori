@@ -3,7 +3,7 @@
   1:1 Clojure port of methods/test_availability.py (pytest -> clojure.test).
 
   Run with `bb test`."
-  (:require [clojure.test :refer [deftest is run-tests]]
+  (:require [kotoba.lang.text] [clojure.test :refer [deftest is run-tests]]
             [yadori.methods.availability :as a]))
 
 (deftest test-classify-status-mapping
@@ -25,7 +25,7 @@
 (deftest test-unsupported-tld-degrades-honestly
   (let [r (a/check-availability "name.quux" :fixtures {})]
     (is (= (get r "status") a/STATUS-UNSUPPORTED-TLD))
-    (is (clojure.string/includes? (get r "note") "G8"))))
+    (is (kotoba.lang.text/includes? (get r "note") "G8"))))
 
 (deftest test-invalid-domain-rejected
   (is (= (get (a/check-availability "nodot" :fixtures {}) "status") a/STATUS-INVALID))
