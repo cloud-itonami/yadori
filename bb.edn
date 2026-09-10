@@ -1,2 +1,2 @@
 {:paths ["src" "test"]
- :tasks {test {:task (load-file "run_tests.clj")}}}
+ :tasks {test {:task (load-file "run_tests.kotoba")}}}

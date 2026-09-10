@@ -37,12 +37,12 @@
   {:ng/id "N5" :ng/req "no DNS provisioning for prohibited content or detection-evasion (fast-flux / DGA / phishing infra)"}]
 
  :actor/cells
- [{:cell/id "availability_check" :cell/source "src/yadori/cells/availability_check/state_machine.cljc" :cell/kind :langgraph :cell/runtime :wasm :cell/node "dan"}
+ [{:cell/id "availability_check" :cell/source "src/yadori/cells/availability_check/state_machine.kotoba" :cell/kind :langgraph :cell/runtime :wasm :cell/node "dan"}
   {:cell/id "name_suggest" :cell/kind :langgraph :cell/runtime :wasm :cell/node "naphtali"}
   {:cell/id "registrar_quote" :cell/kind :langgraph :cell/runtime :wasm :cell/node "gad"}
-  {:cell/id "reservation" :cell/source "src/yadori/cells/reservation/state_machine.cljc" :cell/kind :langgraph :cell/runtime :wasm :cell/node "asher"}
+  {:cell/id "reservation" :cell/source "src/yadori/cells/reservation/state_machine.kotoba" :cell/kind :langgraph :cell/runtime :wasm :cell/node "asher"}
   {:cell/id "dns_provision" :cell/kind :langgraph :cell/runtime :wasm :cell/node "issachar"}
-  {:cell/id "social_post" :cell/source "src/yadori/cells/social_post/state_machine.cljc" :cell/kind :state-machine :cell/runtime :cljc}]
+  {:cell/id "social_post" :cell/source "src/yadori/cells/social_post/state_machine.kotoba" :cell/kind :state-machine :cell/runtime :cljc}]
 
  :actor/lex
  [{:lex/id "availabilityRecord"}
