@@ -4,7 +4,7 @@
  :cell/runtime :wasm
  :cell/node "asher"
  :cell/doc "The defining yadori cell: builds an UNSIGNED reservation intent (serverHeldKey=false) and authorizes it with a MEMBER signature only (server signature refused, G5). Member is registrant-of-record + payer via okaimono assisted-checkout (G2, ADR-2606012100); yadori never the buyer. Enforces no-squatting (G6) and registrar-default (G3) before intent. Live registrar mutate is G7-gated."
- :cell/entry "src/yadori/cells/reservation/state_machine.cljc"
+ :cell/entry "src/yadori/cells/reservation/state_machine.kotoba"
  :cell/handler "ReservationCell"
  :cell/state-graph
  {:nodes [:screen :quote :intent-built :authorized] :entry :screen

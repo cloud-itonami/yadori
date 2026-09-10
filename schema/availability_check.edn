@@ -4,7 +4,7 @@
  :cell/runtime :wasm
  :cell/node "dan"
  :cell/doc "RDAP domain lookup → classify available / registered / unsupported-tld / invalid. Offline-default against a :representative IANA RDAP bootstrap + fixtures; live RDAP fetch is G7-gated (operator attestation + YADORI_ALLOW_LIVE_RDAP=1). Read-only (G1); no third-party zone enumeration. Wraps methods/availability.py."
- :cell/entry "src/yadori/cells/availability_check/state_machine.cljc"
+ :cell/entry "src/yadori/cells/availability_check/state_machine.kotoba"
  :cell/handler "AvailabilityCheckCell"
  :cell/state-graph
  {:nodes [:normalize :resolve-rdap :classify :availability-recorded] :entry :normalize
