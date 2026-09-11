@@ -2,7 +2,7 @@
   "test_availability.py — tests for the yadori RDAP availability classifier (ADR-2606038400).
   1:1 Clojure port of methods/test_availability.py (pytest -> clojure.test).
 
-  Run with `bb test`."
+  Run with `kbb -M:test`."
   (:require [kotoba.lang.text] [clojure.test :refer [deftest is run-tests]]
             [yadori.methods.availability :as a]))
 
