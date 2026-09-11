@@ -23,5 +23,5 @@ operations fail closed.
 - `wire/identity/` — DID and profile JSON projections
 - `docs/adr/` — actor-owned decisions and gate-gap records
 
-Run `bb test`. Live RDAP and registrar mutations remain operator/Council gated;
+Run `kbb -M:test`. Live RDAP and registrar mutations remain operator/Council gated;
 the repository test suite performs no outward writes.
